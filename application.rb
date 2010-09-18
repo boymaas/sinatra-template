@@ -1,15 +1,12 @@
 require 'rubygems'
+#require 'facets'
 require 'sinatra'
-require 'environment'
+require 'sinatra/mapping'
+
+require 'config/environment'
 
 configure do
-  set :views, "#{File.dirname(__FILE__)}/views"
-end
-
-error do
-  e = request.env['sinatra.error']
-  Kernel.puts e.backtrace.join("\n")
-  'Application error'
+  set :views, "#{ROOT_DIR}/app/views"
 end
 
 helpers do
